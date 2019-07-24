@@ -214,9 +214,9 @@
 
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="addpage.html">Request</a>
-      <a href="recScreen.html">Receive</a>
-      <a href="awaitingReq.html">Drive</a>
+      <a href="home.html">Request</a>
+      <a href="receiver_wait.html">Receive</a>
+      <a href="driver_searching.html">Drive</a>
       <a href="about.html">About</a>
     </div>
 
@@ -274,9 +274,7 @@
         subscribeKey : 'sub-c-ce8b5cf8-a60a-11e9-9950-eaa8f74ddcbd'
     });
     const button = document.getElementById('confirm');
-    console.log(button)
     button.addEventListener('click', () => {
-      console.log('hi there')
         pubnub.publish({
             channel : 'user>driver',
             message: {
@@ -289,10 +287,10 @@
             }
         }, function(status, response) {
             console.log(status, response);
-            window.location.replace('dipscreen.html?time=' + document.getElementById('ETA').innerHTML);
+            window.location.replace('sender_wait.html?time=' + document.getElementById('ETA').innerHTML);
 
         });
-        console.log('after pubnub')
+
 
 
     });
